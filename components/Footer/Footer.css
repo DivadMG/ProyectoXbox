@@ -1,47 +1,177 @@
 /* ==========================================================================
-   COMPONENTE: FOOTER — estilos
+   COMPONENTE: CONSOLES
    ========================================================================== */
 
-.footer {
-  border-top: 1px solid var(--color-border);
-  padding-top: var(--space-lg);
-  margin-top: var(--space-lg);
+.consoles {
+  padding: calc(var(--space-xl) + 1rem) 0;
+  background: #0b0b0b;
 }
 
-.footer__top {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-md);
-  padding-bottom: var(--space-lg);
+/* ---------- Encabezado ---------- */
+
+.section-header {
+  max-width: 680px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
 }
 
-.footer__col h4 {
+.section-header__eyebrow {
   font-family: var(--font-display);
-  font-size: 0.95rem;
-  margin-bottom: var(--space-sm);
+  font-size: .85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #7CFC00;
+  margin-bottom: .6rem;
 }
-.footer__col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer__col a {
-  font-size: 0.85rem;
-  color: var(--color-text-muted);
-  transition: color var(--transition);
-}
-.footer__col a:hover { color: var(--color-text); }
 
-.footer__bottom {
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: calc(var(--fs-h2) + .2rem);
+  font-weight: 700;
+  margin-bottom: .8rem;
+}
+
+.section-header__subtitle {
+  color: #bdbdbd;
+  line-height: 1.6;
+}
+
+/* ---------- Tarjetas ---------- */
+
+.consoles__grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: calc(var(--space-md) + .4rem);
+}
+
+.console-card {
+  position: relative;
+  background: #171717;
+  border: 1px solid #2f2f2f;
+  border-radius: 16px;
+  padding: 1.6rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--color-border);
-  padding-block: var(--space-sm);
-  font-size: 0.8rem;
-  color: var(--color-text-muted);
-  flex-wrap: wrap;
-  gap: var(--space-sm);
+  flex-direction: column;
+  transition: .35s ease;
+  overflow: hidden;
 }
-.footer__legal { display: flex; gap: var(--space-sm); }
-.footer__legal a:hover { color: var(--color-text); }
 
-@media (max-width: 700px) {
-  .footer__top { grid-template-columns: repeat(2, 1fr); }
+.console-card:hover{
+  transform: translateY(-8px) scale(1.02);
+  border-color: #7CFC00;
+  box-shadow: 0 10px 25px rgba(124,252,0,.18);
+}
+
+.console-card--featured{
+  background: linear-gradient(180deg,#1d1d1d,#111);
+  border:2px solid #7CFC00;
+}
+
+.console-card__badge{
+  position:absolute;
+  top:15px;
+  right:15px;
+  background:#7CFC00;
+  color:#111;
+  padding:6px 14px;
+  border-radius:20px;
+  font-size:.75rem;
+  font-weight:bold;
+}
+
+/* ---------- Imagen ---------- */
+
+.console-card__thumb{
+  height:150px;
+  background:linear-gradient(135deg,#242424,#0a0a0a);
+  border-radius:12px;
+  margin-bottom:1rem;
+  border:1px solid #333;
+}
+
+.console-card__thumb--x{
+  width:42%;
+  aspect-ratio:1/1.4;
+  margin:auto;
+}
+
+.console-card__thumb--s{
+  width:58%;
+  aspect-ratio:1;
+  margin:auto;
+  border-radius:50%;
+}
+
+.console-card__thumb--mini{
+  width:72%;
+  height:45px;
+  margin:auto;
+  border-radius:999px;
+}
+
+/* ---------- Texto ---------- */
+
+.console-card__name{
+  font-family:var(--font-display);
+  font-size:1.55rem;
+  margin-bottom:.7rem;
+}
+
+.console-card__desc{
+  color:#c9c9c9;
+  font-size:.95rem;
+  line-height:1.5;
+  margin-bottom:1rem;
+}
+
+.console-card__specs{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-bottom:1.2rem;
+}
+
+.console-card__specs li{
+  position:relative;
+  padding-left:18px;
+  color:#b0b0b0;
+}
+
+.console-card__specs li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:8px;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#7CFC00;
+}
+
+.console-card__price{
+  font-size:1.5rem;
+  font-weight:bold;
+  color:#fff;
+  margin-bottom:1rem;
+}
+
+.console-card__cta{
+  margin-top:auto;
+  width:100%;
+  text-align:center;
+}
+
+/* ---------- Responsive ---------- */
+
+@media(max-width:900px){
+
+.consoles__grid{
+grid-template-columns:1fr;
+}
+
+.console-card{
+padding:1.4rem;
+}
+
 }
