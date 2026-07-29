@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PulseX — Juega más allá de los límites</title>
+
+  <!-- Tipografías: display futurista + body legible -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ==========================================================
+       ESTILOS
+       1) tokens.css: variables globales de diseño
+       2) un .css por cada componente (mismo nombre que su carpeta)
+       ========================================================== -->
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="components/Navbar/Navbar.css" />
+  <link rel="stylesheet" href="components/Hero/Hero.css" />
+  <link rel="stylesheet" href="components/Consoles/Consoles.css" />
+  <link rel="stylesheet" href="components/GamePass/GamePass.css" />
+  <link rel="stylesheet" href="components/Games/Games.css" />
+  <link rel="stylesheet" href="components/Footer/Footer.css" />
+</head>
+<body>
+
+  <!-- ==========================================================
+       ESTRUCTURA
+       Cada <div data-component="..."> es un "slot" vacío que
+       main.js rellena con el HTML del componente correspondiente.
+       Esto es lo que permite mantener cada pieza en su propia
+       carpeta en vez de tener todo en un único archivo.
+       ========================================================== -->
+  <div data-component="navbar"></div>
+  <main>
+    <div data-component="hero"></div>
+    <div data-component="consoles"></div>
+    <div data-component="gamepass"></div>
+    <div data-component="games"></div>
+  </main>
+  <div data-component="footer"></div>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+/* ==========================================================================
+   COMPONENTE: CONSOLES — estilos
+   ========================================================================== */
+
+.consoles {
+  padding-block: var(--space-xl);
+}
+
+/* ---- Encabezado de sección reutilizable ---- */
+.section-header {
+  max-width: 640px;
+  margin-bottom: var(--space-lg);
+}
+.section-header__eyebrow {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+.section-header__subtitle {
+  color: var(--color-text-muted);
+}
+
+/* ---- Grid de tarjetas ---- */
+.consoles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.console-card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.console-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-accent-dim);
+}
+.console-card--featured {
+  border-color: var(--color-accent);
+  background: linear-gradient(180deg, var(--color-surface-alt), var(--color-surface));
+}
+.console-card__badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  background: var(--color-accent);
+  color: #04140a;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.console-card__thumb {
+  height: 140px;
+  border-radius: 8px;
+  margin-bottom: var(--space-sm);
+  background: linear-gradient(135deg, var(--color-surface-alt), #0e0e12);
+  border: 1px solid var(--color-border);
+}
+.console-card__thumb--x { aspect-ratio: 1/1.4; width: 40%; margin-inline: auto; }
+.console-card__thumb--s { aspect-ratio: 1/1; width: 55%; margin-inline: auto; border-radius: 50%; }
+.console-card__thumb--mini { width: 70%; height: 40px; margin-inline: auto; border-radius: 999px; }
+
+.console-card__name {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-xs);
+}
+.console-card__desc {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+.console-card__specs {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-sm);
+}
+.console-card__specs li {
+  padding-left: 1rem;
+  position: relative;
+  color: var(--color-text-muted);
+}
+.console-card__specs li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px;
+  width: 6px; height: 6px;
+  background: var(--color-accent);
+  border-radius: 50%;
+}
+.console-card__price {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+.console-card__cta { margin-top: auto; width: 100%; text-align: center; }
+
+@media (max-width: 900px) {
+  .consoles__grid { grid-template-columns: 1fr; }
+}

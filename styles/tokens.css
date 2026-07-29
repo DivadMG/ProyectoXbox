@@ -1,0 +1,77 @@
+/* ==========================================================================
+   TOKENS.CSS
+   Sistema de diseño global: aquí viven todos los valores reutilizables
+   (colores, tipografías, espaciados). Cada componente SOLO debe consumir
+   estas variables, nunca "hardcodear" un color o tamaño nuevo.
+   ========================================================================== */
+
+:root {
+  /* ---- Color: base oscura tipo "consola / HUD de videojuego" ---- */
+  --color-bg: #0a0a0d;              /* fondo principal, casi negro */
+  --color-surface: #141418;         /* tarjetas / secciones elevadas */
+  --color-surface-alt: #1c1c22;     /* hover / segunda elevación */
+  --color-border: #2a2a31;
+
+  /* ---- Color: acentos ---- */
+  --color-accent: #3ddc64;          /* verde eléctrico: CTAs, focus */
+  --color-accent-dim: #2a9c48;
+  --color-accent-2: #7b5cfa;        /* violeta: sección suscripción */
+  --color-text: #f4f4f6;
+  --color-text-muted: #9a9aa5;
+
+  /* ---- Tipografía ---- */
+  --font-display: "Chakra Petch", "Segoe UI", sans-serif; /* titulares, look "HUD" */
+  --font-body: "Inter", "Segoe UI", sans-serif;           /* texto de lectura */
+
+  --fs-hero: clamp(2.75rem, 6vw, 5.5rem);
+  --fs-h2: clamp(1.75rem, 3.5vw, 2.75rem);
+  --fs-h3: 1.25rem;
+  --fs-body: 1rem;
+  --fs-small: 0.85rem;
+
+  /* ---- Espaciado ---- */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 7rem;
+
+  /* ---- Layout ---- */
+  --content-width: 1280px;
+  --radius: 10px;
+  --transition: 200ms ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  line-height: 1.5;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+/* Accesibilidad: foco visible en todo el sitio */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* Respeta la preferencia del usuario de reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

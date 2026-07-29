@@ -1,0 +1,58 @@
+<!-- ==========================================================================
+     COMPONENTE: NAVBAR
+     Barra de navegación fija superior: logo + links de navegación + acciones
+     (buscar, carrito, perfil). Se carga dinámicamente por main.js.
+     ========================================================================== -->
+<header class="navbar" id="navbar">
+  <div class="navbar__inner container">
+
+    <!-- Logo / marca -->
+    <a href="#top" class="navbar__logo" aria-label="Inicio">
+      <span class="navbar__logo-mark">◆</span>
+      <span class="navbar__logo-text">PULSE<span class="navbar__logo-accent">X</span></span>
+    </a>
+
+    <!-- Navegación principal -->
+    <nav class="navbar__nav" aria-label="Navegación principal">
+      <ul>
+        <li><a href="#consolas">Consolas</a></li>
+        <li><a href="#juegos">Juegos</a></li>
+        <li><a href="#gamepass">Suscripción</a></li>
+        <li><a href="#accesorios">Accesorios</a></li>
+        <li><a href="#soporte">Soporte</a></li>
+      </ul>
+    </nav>
+
+    <!-- Acciones a la derecha -->
+    <div class="navbar__actions">
+      <button class="navbar__icon-btn" aria-label="Buscar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+      <button class="navbar__icon-btn" aria-label="Carrito">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+      </button>
+      <button class="navbar__cta">Iniciar sesión</button>
+    </div>
+
+    <!-- Botón hamburguesa (mobile) -->
+    <button class="navbar__burger" id="navbarBurger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Menú mobile desplegable -->
+  <nav class="navbar__mobile-nav" id="navbarMobileNav" aria-label="Navegación móvil">
+    <ul>
+      <li><a href="#consolas">Consolas</a></li>
+      <li><a href="#juegos">Juegos</a></li>
+      <li><a href="#gamepass">Suscripción</a></li>
+      <li><a href="#accesorios">Accesorios</a></li>
+      <li><a href="#soporte">Soporte</a></li>
+    </ul>
+  </nav>
+</header>
