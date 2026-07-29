@@ -68,9 +68,9 @@
   font-size: 0.9rem;
   padding: 0.55rem 1.2rem;
   border-radius: 999px;
-  transition: background var(--transition), transform var(--transition);
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
 }
-.navbar__cta:hover { background: var(--color-accent-dim); transform: translateY(-1px); }
+.navbar__cta:hover { background: var(--color-accent-dim); transform: translateY(-1px); box-shadow: 0 0 16px rgba(61, 220, 100, 0.5); }
 
 /* ---- Burger (mobile) ---- */
 .navbar__burger {
@@ -112,4 +112,26 @@
 @media (max-width: 860px) {
   .navbar__nav, .navbar__actions { display: none; }
   .navbar__burger { display: flex; }
+}
+
+/* ---- Detalle visual: brillo y animaciones sutiles ---- */
+.navbar__logo-mark {
+  text-shadow: 0 0 8px var(--color-accent);
+}
+
+.navbar__nav a {
+  position: relative;
+}
+.navbar__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent);
+  transition: width var(--transition);
+}
+.navbar__nav a:hover::after {
+  width: 100%;
 }
