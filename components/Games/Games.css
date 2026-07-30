@@ -1,5 +1,8 @@
 /* ==========================================================================
    COMPONENTE: GAMES — estilos
+   Los covers referencian el lomo de una caja física de juego (barra lateral
+   con el tinte de cada título) y el gesto de "reanudar" del dashboard de
+   Xbox al hacer hover. Usa el sistema de variables ya existente en el sitio.
    ========================================================================== */
 
 .games { padding-block: var(--space-xl); }
@@ -9,12 +12,23 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: var(--space-lg);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border);
 }
+
 .games__see-all {
   font-size: 0.9rem;
   color: var(--color-accent);
   white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
+.games__see-all::after {
+  content: "→";
+  transition: transform var(--transition);
+}
+.games__see-all:hover::after { transform: translateX(4px); }
 
 .games__grid {
   display: grid;
@@ -23,24 +37,105 @@
 }
 
 .game-card {
+  position: relative;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  transition: transform var(--transition);
+  background: var(--color-surface);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
 }
-.game-card:hover { transform: translateY(-6px); }
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: hsl(var(--tint), 70%, 45%);
+  box-shadow: 0 20px 40px -20px hsl(var(--tint) 70% 30% / 0.6);
+}
+
+/* lomo del cartucho — evoca el canto de una caja física en un estante */
+.game-card__spine {
+  position: absolute;
+  inset-block: 0;
+  left: 0;
+  width: 4px;
+  background: hsl(var(--tint), 70%, 50%);
+  z-index: 2;
+}
 
 .game-card__cover {
+  position: relative;
   aspect-ratio: 3/4;
-  /* Cada juego recibe un matiz distinto vía la variable --tint (0-360) */
+  overflow: hidden;
   background: linear-gradient(160deg,
     hsl(var(--tint), 60%, 22%),
     hsl(var(--tint), 70%, 10%));
 }
+/* grano sutil tipo carátula impresa */
+.game-card__cover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(135deg, rgba(255,255,255,0.035) 0 2px, transparent 2px 6px);
+  mix-blend-mode: overlay;
+}
+/* viñeta para dar profundidad */
+.game-card__cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 30%, transparent 40%, rgba(0,0,0,0.45) 100%);
+}
+
+/* botón de reanudar, aparece al hover */
+.game-card__play {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 3;
+}
+.game-card:hover .game-card__play {
+  opacity: 1;
+  transform: scale(1);
+}
+.game-card__play-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 14, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.game-card__play-icon svg {
+  width: 16px;
+  height: 16px;
+  margin-left: 2px;
+}
+
+/* chip de género en la esquina */
+.game-card__tag {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  z-index: 3;
+  font-size: 0.68rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(10, 10, 14, 0.55);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
 
 .game-card__info {
   padding: var(--space-sm);
-  background: var(--color-surface);
+  padding-left: calc(var(--space-sm) + 4px); /* compensa el ancho del lomo */
 }
 .game-card__info h3 {
   font-family: var(--font-display);
@@ -54,4 +149,11 @@
 
 @media (max-width: 900px) {
   .games__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+  .games__grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .game-card, .game-card__play { transition: none; }
 }

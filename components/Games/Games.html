@@ -1,46 +1,81 @@
 <!-- ==========================================================================
      COMPONENTE: GAMES
-     Carrusel/grid de juegos destacados.
+     Grilla de catálogo. Cada .game-card recibe su tinte vía --tint (0-360)
+     inline, tal como en la versión original.
      ========================================================================== -->
-<section class="games" id="juegos">
+<section class="games" id="games">
   <div class="container">
-    <header class="section-header games__header">
-      <div>
-        <p class="section-header__eyebrow">Catálogo</p>
-        <h2 class="section-header__title">Destacados de la semana</h2>
-      </div>
-      <a href="#" class="games__see-all">Ver todos →</a>
-    </header>
+    <div class="games__header">
+      <h2 class="games__title">Catálogo destacado</h2>
+      <a href="#" class="games__see-all">Ver todo</a>
+    </div>
 
     <div class="games__grid">
-      <article class="game-card">
-        <div class="game-card__cover" style="--tint: 142"></div>
+
+      <article class="game-card" style="--tint: 200">
+        <div class="game-card__cover">
+          <span class="game-card__spine"></span>
+          <span class="game-card__tag">Acción</span>
+          <div class="game-card__play">
+            <span class="game-card__play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+        </div>
         <div class="game-card__info">
-          <h3>Nébula Rift</h3>
-          <p>Acción · Ciencia ficción</p>
+          <h3>Nombre del juego</h3>
+          <p>Estudio desarrollador</p>
         </div>
       </article>
-      <article class="game-card">
-        <div class="game-card__cover" style="--tint: 260"></div>
+
+      <article class="game-card" style="--tint: 20">
+        <div class="game-card__cover">
+          <span class="game-card__spine"></span>
+          <span class="game-card__tag">Aventura</span>
+          <div class="game-card__play">
+            <span class="game-card__play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+        </div>
         <div class="game-card__info">
-          <h3>Forjadores de Reino</h3>
-          <p>Estrategia · RPG</p>
+          <h3>Nombre del juego</h3>
+          <p>Estudio desarrollador</p>
         </div>
       </article>
-      <article class="game-card">
-        <div class="game-card__cover" style="--tint: 20"></div>
+
+      <article class="game-card" style="--tint: 265">
+        <div class="game-card__cover">
+          <span class="game-card__spine"></span>
+          <span class="game-card__tag">RPG</span>
+          <div class="game-card__play">
+            <span class="game-card__play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+        </div>
         <div class="game-card__info">
-          <h3>Velocidad Cero</h3>
-          <p>Carreras · Multijugador</p>
+          <h3>Nombre del juego</h3>
+          <p>Estudio desarrollador</p>
         </div>
       </article>
-      <article class="game-card">
-        <div class="game-card__cover" style="--tint: 190"></div>
+
+      <article class="game-card" style="--tint: 340">
+        <div class="game-card__cover">
+          <span class="game-card__spine"></span>
+          <span class="game-card__tag">Deportes</span>
+          <div class="game-card__play">
+            <span class="game-card__play-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+          </div>
+        </div>
         <div class="game-card__info">
-          <h3>Sombras de Kael</h3>
-          <p>Aventura · Terror</p>
+          <h3>Nombre del juego</h3>
+          <p>Estudio desarrollador</p>
         </div>
       </article>
+
     </div>
   </div>
 </section>
